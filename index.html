@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shams al-Hayaa - Urdu Novel</title>
+    <style>
+        /* Green Theme Set Kiya Hai */
+        :root { --main: #006400; --bg: #f4f9f4; }
+        
+        body { 
+            -webkit-user-select: none; user-select: none; 
+            font-family: 'Segoe UI', Roboto, sans-serif; 
+            text-align: center; background-color: var(--bg); 
+            margin: 0; padding: 0; overflow-x: hidden;
+        }
+
+        /* Header with Bigger Title */
+        .app-header {
+            background: white; padding: 20px 10px;
+            border-bottom: 4px solid var(--main);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .app-title { 
+            font-size: 42px; /* Bada aur wazeh */
+            font-weight: 900; 
+            color: var(--main); 
+            margin: 0; 
+            letter-spacing: 1px;
+            font-family: 'Georgia', serif;
+        }
+        .app-sub { font-size: 16px; color: #444; font-style: italic; margin-top: 5px; }
+
+        .ad-box { margin: 10px auto; min-height: 50px; width: 100%; max-width: 320px; }
+
+        .info-card { 
+            background: white; margin: 10px 15px; padding: 12px;
+            border-radius: 12px; font-size: 14px; line-height: 1.5;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid var(--main);
+        }
+
+        .mini-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .m-btn { 
+            background: white; color: var(--main); border: 2px solid var(--main);
+            padding: 6px 15px; border-radius: 25px; font-size: 12px; font-weight: bold;
+            cursor: pointer; transition: 0.3s;
+        }
+
+        .grid-container { 
+            display: grid; grid-template-columns: 1fr 1fr; 
+            gap: 10px; padding: 0 15px; margin-bottom: 20px;
+        }
+        .p-btn { 
+            background: var(--main); color: white; border: none;
+            padding: 12px; border-radius: 8px; font-weight: bold;
+            font-size: 14px; box-shadow: 0 4px 6px rgba(0,100,0,0.2);
+        }
+
+        .novel-container { 
+            position: relative; width: 100%; height: 85vh; 
+            display: none; border-top: 2px solid var(--main);
+            background: #f0f0f0;
+        }
+        
+        .security-overlay {
+            position: absolute; top: 0; right: 0;
+            width: 70px; height: 60px;
+            background: transparent; z-index: 9999;
+        }
+
+        iframe { width: 100%; height: 100%; border: none; }
+
+        .loader { 
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            border: 5px solid #ddd; border-top: 5px solid var(--main);
+            border-radius: 50%; width: 45px; height: 45px; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
+    </style>
+</head>
+
+<body oncontextmenu="return false">
+
+    <div class="app-header">
+        <h1 class="app-title">Shams al-Hayaa</h1>
+        <div class="app-sub">By Husny Kanwal</div>
+    </div>
+
+    <div class="ad-box">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="6271639423" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
+    <div class="info-card">
+        Novel by <b>Husny Kanwal</b><br>
+        Shams al-Hayaa: Jo dil mein utar jaye ❤️
+    </div>
+
+    <div class="mini-btns">
+        <button class="m-btn" onclick="shareMe()">📤 Share</button>
+        <button class="m-btn" onclick="rateMe()">⭐ Rate Us</button>
+    </div>
+
+    <div class="grid-container">
+        <button class="p-btn" onclick="openNovel('19LlnDiuzmj852a_PggLMvmylW4TZqq8_')">Part 1</button>
+        <button class="p-btn" onclick="openNovel('1APe3iX9GErObREhfsYDu8RjIebIqzApf')">Part 2</button>
+        <button class="p-btn" onclick="openNovel('1K3bYHM2ejqHAGjikt6FYLd-CmYp37rRT')">Part 3</button>
+        <button class="p-btn" onclick="openNovel('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
+    </div>
+
+    <div class="novel-container" id="viewArea">
+        <div class="security-overlay"></div> 
+        <div class="loader" id="loadingIcon"></div>
+        <iframe id="novelFrame" onload="stopLoad()"></iframe>
+    </div>
+
+    <script>
+        function openNovel(id) {
+            const area = document.getElementById('viewArea');
+            const frame = document.getElementById('novelFrame');
+            const loader = document.getElementById('loadingIcon');
+            
+            area.style.display = 'block';
+            loader.style.display = 'block';
+            frame.src = `https://drive.google.com/file/d/${id}/preview`;
+            
+            setTimeout(() => {
+                area.scrollIntoView({ behavior: 'smooth' });
+            }, 300);
+        }
+
+        function stopLoad() {
+            document.getElementById('loadingIcon').style.display = 'none';
+        }
+
+        function shareMe() {
+            if (navigator.share) {
+                navigator.share({ title: 'Shams al-Hayaa Novel', url: window.location.href });
+            }
+        }
+
+        function rateMe() {
+            // Rate Us link ko aap baad mein update kar sakti hain
+            window.open('https://play.google.com/store/apps/details?id=com.shamsalhayaa.novel', '_blank');
+        }
+
+        document.addEventListener('keydown', e => {
+            if (e.ctrlKey && ['c','u','s','p'].includes(e.key)) e.preventDefault();
+        });
+    </script>
+</body>
+</html>
