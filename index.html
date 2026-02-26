@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shams al-Hayaa - Urdu Novel</title>
     <style>
-        /* Green Theme Set Kiya Hai */
         :root { --main: #006400; --bg: #f4f9f4; }
         
         body { 
@@ -15,40 +14,40 @@
             margin: 0; padding: 0; overflow-x: hidden;
         }
 
-        /* Header with Bigger Title */
+        /* SPACE FIX: Padding aur Margin kam kar diye */
         .app-header {
-            background: white; padding: 20px 10px;
+            background: white; padding: 12px 10px 8px 10px;
             border-bottom: 4px solid var(--main);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .app-title { 
-            font-size: 42px; /* Bada aur wazeh */
+            font-size: 38px; 
             font-weight: 900; 
             color: var(--main); 
             margin: 0; 
-            letter-spacing: 1px;
             font-family: 'Georgia', serif;
         }
-        .app-sub { font-size: 16px; color: #444; font-style: italic; margin-top: 5px; }
+        .app-sub { font-size: 14px; color: #444; font-style: italic; margin-top: -2px; }
 
-        .ad-box { margin: 10px auto; min-height: 50px; width: 100%; max-width: 320px; }
+        /* SPACE FIX: Ad box ka margin kam kiya */
+        .ad-box { margin: 5px auto; min-height: 50px; width: 100%; max-width: 320px; }
 
         .info-card { 
-            background: white; margin: 10px 15px; padding: 12px;
-            border-radius: 12px; font-size: 14px; line-height: 1.5;
+            background: white; margin: 8px 15px; padding: 10px;
+            border-radius: 12px; font-size: 14px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid var(--main);
         }
 
-        .mini-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 15px; }
+        .mini-btns { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; }
         .m-btn { 
             background: white; color: var(--main); border: 2px solid var(--main);
-            padding: 6px 15px; border-radius: 25px; font-size: 12px; font-weight: bold;
-            cursor: pointer; transition: 0.3s;
+            padding: 5px 15px; border-radius: 25px; font-size: 11px; font-weight: bold;
+            cursor: pointer;
         }
 
         .grid-container { 
             display: grid; grid-template-columns: 1fr 1fr; 
-            gap: 10px; padding: 0 15px; margin-bottom: 20px;
+            gap: 10px; padding: 0 15px; margin-bottom: 15px;
         }
         .p-btn { 
             background: var(--main); color: white; border: none;
@@ -57,9 +56,9 @@
         }
 
         .novel-container { 
-            position: relative; width: 100%; height: 85vh; 
+            position: relative; width: 100%; height: 80vh; 
             display: none; border-top: 2px solid var(--main);
-            background: #f0f0f0;
+            background: #f0f0f0; margin-top: 10px;
         }
         
         .security-overlay {
@@ -67,6 +66,9 @@
             width: 70px; height: 60px;
             background: transparent; z-index: 9999;
         }
+
+        /* Native Ad Slot after Novel */
+        .native-ad-box { margin: 15px auto; width: 90%; background: #fff; border: 1px dashed #ccc; display: none; }
 
         iframe { width: 100%; height: 100%; border: none; }
 
@@ -88,7 +90,7 @@
 
     <div class="ad-box">
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="6271639423" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="9806767164" data-ad-format="auto" data-full-width-responsive="true"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
@@ -98,7 +100,7 @@
     </div>
 
     <div class="mini-btns">
-        <button class="m-btn" onclick="shareMe()">📤 Share</button>
+        <button class="m-btn" onclick="shareMe()">📤 Share App</button>
         <button class="m-btn" onclick="rateMe()">⭐ Rate Us</button>
     </div>
 
@@ -115,13 +117,20 @@
         <iframe id="novelFrame" onload="stopLoad()"></iframe>
     </div>
 
+    <div class="native-ad-box" id="nativeSlot">
+        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="8302113808"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <script>
         function openNovel(id) {
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
             const loader = document.getElementById('loadingIcon');
+            const native = document.getElementById('nativeSlot');
             
             area.style.display = 'block';
+            native.style.display = 'block'; // Novel khulte hi native ad slot bhi dikhega
             loader.style.display = 'block';
             frame.src = `https://drive.google.com/file/d/${id}/preview`;
             
@@ -141,7 +150,6 @@
         }
 
         function rateMe() {
-            // Rate Us link ko aap baad mein update kar sakti hain
             window.open('https://play.google.com/store/apps/details?id=com.shamsalhayaa.novel', '_blank');
         }
 
