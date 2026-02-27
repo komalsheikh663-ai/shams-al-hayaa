@@ -14,48 +14,53 @@
             margin: 0; padding: 0; overflow-x: hidden;
         }
 
-        /* SPACE FIX: Isse header aur ads ke beech ka gap kam ho jayega */
         .app-header {
-            background: white; padding: 10px 10px 5px 10px;
+            background: white; padding: 15px 10px;
             border-bottom: 3px solid var(--main);
             box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         .app-title { 
-            font-size: 32px; font-weight: 900; 
+            font-size: 30px; font-weight: 900; 
             color: var(--main); margin: 0; 
             font-family: 'Georgia', serif;
         }
-        .app-sub { font-size: 13px; color: #444; font-style: italic; margin-top: -3px; }
+        .app-sub { font-size: 13px; color: #444; font-style: italic; margin-top: -2px; }
 
-        /* Banner Ad Area - Yahan aapka ad dikhega */
-        .ad-box { margin: 5px auto; min-height: 50px; width: 100%; max-width: 320px; }
+        /* Banner Ad Area - Start mein hidden rahega */
+        .ad-box { 
+            display: none; 
+            margin: 10px auto; 
+            min-height: 50px; 
+            width: 100%; 
+            max-width: 320px; 
+        }
 
         .info-card { 
-            background: white; margin: 5px 15px; padding: 8px;
-            border-radius: 10px; font-size: 13px;
+            background: white; margin: 20px 15px 10px 15px; padding: 12px;
+            border-radius: 10px; font-size: 14px;
             box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid var(--main);
         }
 
-        .mini-btns { display: flex; justify-content: center; gap: 8px; margin-bottom: 10px; }
+        .mini-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
         .m-btn { 
             background: white; color: var(--main); border: 1.5px solid var(--main);
-            padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: bold;
+            padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: bold;
             cursor: pointer;
         }
 
         .grid-container { 
             display: grid; grid-template-columns: 1fr 1fr; 
-            gap: 8px; padding: 0 15px; margin-bottom: 10px;
+            gap: 12px; padding: 0 15px; margin-bottom: 20px;
         }
         .p-btn { 
             background: var(--main); color: white; border: none;
-            padding: 10px; border-radius: 6px; font-weight: bold;
-            font-size: 13px;
+            padding: 14px; border-radius: 8px; font-weight: bold;
+            font-size: 14px; cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        /* Novel frame aur ad slot ka setup */
         .novel-container { 
-            position: relative; width: 100%; height: 80vh; 
+            position: relative; width: 100%; height: 85vh; 
             display: none; border-top: 2px solid var(--main);
             background: #f0f0f0; margin-top: 5px;
         }
@@ -65,9 +70,6 @@
             width: 70px; height: 60px;
             background: transparent; z-index: 9999;
         }
-
-        /* Native Ad Slot after Novel (Kamai barhane ke liye) */
-        .native-ad-box { margin: 10px auto; width: 100%; background: #fff; display: none; }
 
         iframe { width: 100%; height: 100%; border: none; }
 
@@ -87,12 +89,6 @@
         <div class="app-sub">By Husny Kanwal</div>
     </div>
 
-    <div class="ad-box">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="9806767164" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
     <div class="info-card">
         Novel by <b>Husny Kanwal</b> ❤️
     </div>
@@ -109,15 +105,16 @@
         <button class="p-btn" onclick="openNovel('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
     </div>
 
+    <div class="ad-box" id="bannerAd">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="9806767164" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div class="novel-container" id="viewArea">
         <div class="security-overlay"></div> 
         <div class="loader" id="loadingIcon"></div>
         <iframe id="novelFrame" onload="stopLoad()"></iframe>
-    </div>
-
-    <div class="native-ad-box" id="nativeSlot">
-        <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="8302113808"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <script>
@@ -125,15 +122,16 @@
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
             const loader = document.getElementById('loadingIcon');
-            const native = document.getElementById('nativeSlot');
+            const ad = document.getElementById('bannerAd');
             
+            ad.style.display = 'block';
             area.style.display = 'block';
-            native.style.display = 'block'; 
             loader.style.display = 'block';
+            
             frame.src = `https://drive.google.com/file/d/${id}/preview`;
             
             setTimeout(() => {
-                area.scrollIntoView({ behavior: 'smooth' });
+                ad.scrollIntoView({ behavior: 'smooth' });
             }, 300);
         }
 
@@ -142,8 +140,23 @@
         }
 
         function shareMe() {
+            const shareData = {
+                title: 'Shams al-Hayaa Novel',
+                text: 'Shams al-Hayaa Urdu Novel by Husny Kanwal parhein!',
+                url: 'https://play.google.com/store/apps/details?id=com.shamsalhayaa.novel'
+            };
+
             if (navigator.share) {
-                navigator.share({ title: 'Shams al-Hayaa Novel', url: window.location.href });
+                navigator.share(shareData).catch(err => console.log('Error sharing', err));
+            } else {
+                // Fallback: Copy link if native share fails
+                const dummy = document.createElement('input');
+                document.body.appendChild(dummy);
+                dummy.value = shareData.url;
+                dummy.select();
+                document.execCommand('copy');
+                document.body.removeChild(dummy);
+                alert('App link copied to clipboard!');
             }
         }
 
