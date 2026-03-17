@@ -26,26 +26,14 @@
         }
         .app-sub { font-size: 13px; color: #444; font-style: italic; margin-top: -2px; }
 
-        /* Banner Ad Area - Start mein hidden rahega */
-        .ad-box { 
-            display: none; 
-            margin: 10px auto; 
-            min-height: 50px; 
-            width: 100%; 
-            max-width: 320px; 
-        }
-
         .info-card { 
-            background: white; margin: 20px 15px 10px 15px; padding: 12px;
-            border-radius: 10px; font-size: 14px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05); border-left: 5px solid var(--main);
-        }
-
-        .mini-btns { display: flex; justify-content: center; gap: 10px; margin-bottom: 20px; }
-        .m-btn { 
-            background: white; color: var(--main); border: 1.5px solid var(--main);
-            padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: bold;
-            cursor: pointer;
+            background: white; margin: 20px 15px 10px 15px; padding: 15px;
+            border-radius: 12px; font-size: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+            border-left: 6px solid var(--main);
+            border-right: 6px solid var(--main);
+            display: flex; flex-direction: column; gap: 5px;
+            line-height: 1.4;
         }
 
         .grid-container { 
@@ -90,12 +78,8 @@
     </div>
 
     <div class="info-card">
-        Novel by <b>Husny Kanwal</b> ❤️
-    </div>
-
-    <div class="mini-btns">
-        <button class="m-btn" onclick="shareMe()">📤 Share App</button>
-        <button class="m-btn" onclick="rateMe()">⭐ Rate Us</button>
+        <div style="color: #333; font-weight: bold; font-size: 17px;">Novel's by <b>Husny Kanwal...</b></div>
+        <div style="color: #555; font-size: 15px;">Novels : jo dil m uter jayn❤️...</div>
     </div>
 
     <div class="grid-container">
@@ -103,12 +87,6 @@
         <button class="p-btn" onclick="openNovel('1APe3iX9GErObREhfsYDu8RjIebIqzApf')">Part 2</button>
         <button class="p-btn" onclick="openNovel('1K3bYHM2ejqHAGjikt6FYLd-CmYp37rRT')">Part 3</button>
         <button class="p-btn" onclick="openNovel('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
-    </div>
-
-    <div class="ad-box" id="bannerAd">
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="9806767164" data-ad-format="auto" data-full-width-responsive="true"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
     <div class="novel-container" id="viewArea">
@@ -122,46 +100,19 @@
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
             const loader = document.getElementById('loadingIcon');
-            const ad = document.getElementById('bannerAd');
             
-            ad.style.display = 'block';
             area.style.display = 'block';
             loader.style.display = 'block';
             
             frame.src = `https://drive.google.com/file/d/${id}/preview`;
             
             setTimeout(() => {
-                ad.scrollIntoView({ behavior: 'smooth' });
+                area.scrollIntoView({ behavior: 'smooth' });
             }, 300);
         }
 
         function stopLoad() {
             document.getElementById('loadingIcon').style.display = 'none';
-        }
-
-        function shareMe() {
-            const shareData = {
-                title: 'Shams al-Hayaa Novel',
-                text: 'Shams al-Hayaa Urdu Novel by Husny Kanwal parhein!',
-                url: 'https://play.google.com/store/apps/details?id=com.shamsalhayaa.novel'
-            };
-
-            if (navigator.share) {
-                navigator.share(shareData).catch(err => console.log('Error sharing', err));
-            } else {
-                // Fallback: Copy link if native share fails
-                const dummy = document.createElement('input');
-                document.body.appendChild(dummy);
-                dummy.value = shareData.url;
-                dummy.select();
-                document.execCommand('copy');
-                document.body.removeChild(dummy);
-                alert('App link copied to clipboard!');
-            }
-        }
-
-        function rateMe() {
-            window.open('https://play.google.com/store/apps/details?id=com.shamsalhayaa.novel', '_blank');
         }
 
         document.addEventListener('keydown', e => {
