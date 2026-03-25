@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shams al-Hayaa - Urdu Novel</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
+    
     <style>
         :root { --main: #006400; --bg: #f4f9f4; }
         
@@ -26,6 +28,9 @@
         }
         .app-sub { font-size: 13px; color: #444; font-style: italic; margin-top: -2px; }
 
+        /* Banner Ad Container */
+        .ad-container { margin: 10px 0; min-height: 50px; }
+
         .info-card { 
             background: white; margin: 20px 15px 10px 15px; padding: 15px;
             border-radius: 12px; font-size: 16px;
@@ -46,6 +51,9 @@
             font-size: 14px; cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+
+        /* Native Ad Box */
+        .native-box { grid-column: span 2; margin: 10px 0; border: 1px dashed #ccc; border-radius: 8px; min-height: 100px; }
 
         .novel-container { 
             position: relative; width: 100%; height: 85vh; 
@@ -77,6 +85,16 @@
         <div class="app-sub">By Husny Kanwal</div>
     </div>
 
+    <div class="ad-container">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-app-pub-8741169014792010"
+             data-ad-slot="9806767164"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </div>
+
     <div class="info-card">
         <div style="color: #333; font-weight: bold; font-size: 17px;">Novel's by <b>Husny Kanwal...</b></div>
         <div style="color: #555; font-size: 15px;">Novels : jo dil m uter jayn❤️...</div>
@@ -85,6 +103,17 @@
     <div class="grid-container">
         <button class="p-btn" onclick="openNovel('19LlnDiuzmj852a_PggLMvmylW4TZqq8_')">Part 1</button>
         <button class="p-btn" onclick="openNovel('1APe3iX9GErObREhfsYDu8RjIebIqzApf')">Part 2</button>
+        
+        <div class="native-box">
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-fb+5w+4e-db+86"
+                 data-ad-client="ca-app-pub-8741169014792010"
+                 data-ad-slot="8302113808"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
         <button class="p-btn" onclick="openNovel('1K3bYHM2ejqHAGjikt6FYLd-CmYp37rRT')">Part 3</button>
         <button class="p-btn" onclick="openNovel('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
     </div>
@@ -97,6 +126,7 @@
 
     <script>
         function openNovel(id) {
+            // Interstitial Ad Logic Placement (ca-app-pub-8741169014792010/5867522152)
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
             const loader = document.getElementById('loadingIcon');
@@ -115,6 +145,7 @@
             document.getElementById('loadingIcon').style.display = 'none';
         }
 
+        // Protection: Block Keyboard Shortcuts (Ctrl+C, U, S, P)
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && ['c','u','s','p'].includes(e.key)) e.preventDefault();
         });
