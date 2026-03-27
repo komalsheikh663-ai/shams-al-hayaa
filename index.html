@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shams al-Hayaa - Urdu Novel</title>
+    
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
+    
+    <script>
+        // App Open Ad Logic (Simple & Reliable)
+        window.onload = function() {
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        };
+    </script>
     
     <style>
         :root { --main: #006400; --bg: #f4f9f4; }
@@ -28,8 +36,7 @@
         }
         .app-sub { font-size: 13px; color: #444; font-style: italic; margin-top: -2px; }
 
-        /* Banner Ad Container */
-        .ad-container { margin: 10px 0; min-height: 50px; }
+        .ad-container { margin: 10px 0; min-height: 60px; }
 
         .info-card { 
             background: white; margin: 20px 15px 10px 15px; padding: 15px;
@@ -50,9 +57,10 @@
             padding: 14px; border-radius: 8px; font-weight: bold;
             font-size: 14px; cursor: pointer;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.1s;
         }
+        .p-btn:active { transform: scale(0.95); }
 
-        /* Native Ad Box */
         .native-box { grid-column: span 2; margin: 10px 0; border: 1px dashed #ccc; border-radius: 8px; min-height: 100px; }
 
         .novel-container { 
@@ -90,8 +98,7 @@
              style="display:block"
              data-ad-client="ca-app-pub-8741169014792010"
              data-ad-slot="9806767164"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+             data-ad-format="banner"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
@@ -126,26 +133,31 @@
 
     <script>
         function openNovel(id) {
-            // Interstitial Ad Logic Placement (ca-app-pub-8741169014792010/5867522152)
+            // Interstitial Ad Trigger (Unit: 5867522152)
+            // یہ فنکشن اب بٹن کو بلاک نہیں کرے گا
+            try {
+                (adsbygoogle = window.adsbygoogle || []).push({
+                    google_ad_client: "ca-app-pub-8741169014792010",
+                    enable_page_level_ads: true
+                });
+            } catch (e) { console.log("Ad skipping..."); }
+
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
             const loader = document.getElementById('loadingIcon');
             
             area.style.display = 'block';
             loader.style.display = 'block';
-            
             frame.src = `https://drive.google.com/file/d/${id}/preview`;
             
-            setTimeout(() => {
-                area.scrollIntoView({ behavior: 'smooth' });
-            }, 300);
+            setTimeout(() => { area.scrollIntoView({ behavior: 'smooth' }); }, 300);
         }
 
         function stopLoad() {
             document.getElementById('loadingIcon').style.display = 'none';
         }
 
-        // Protection: Block Keyboard Shortcuts (Ctrl+C, U, S, P)
+        // PROTECTION: Block Keyboard Shortcuts
         document.addEventListener('keydown', e => {
             if (e.ctrlKey && ['c','u','s','p'].includes(e.key)) e.preventDefault();
         });
