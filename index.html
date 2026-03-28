@@ -2,164 +2,126 @@
 <html lang="ur">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shams al-Hayaa - Urdu Novel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Shams al-Hayaa - Deep Protected</title>
     
+    <link rel="preconnect" href="https://drive.google.com">
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
     
     <script>
-        // App Open Ad Logic (Simple & Reliable)
+        // 2. App Open Call & Smart Error Handling (Ad-Blocker Detection)
         window.onload = function() {
-            (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({}); // App Open Call
+            
+            // 3. Caching & Ad-Blocker Detection System
+            setTimeout(() => {
+                const adCheck = document.querySelector('.adsbygoogle');
+                if (!adCheck || adCheck.offsetHeight === 0) {
+                    document.getElementById('security-alert').style.display = 'block';
+                }
+            }, 5000);
         };
     </script>
-    
+
     <style>
+        /* 4. CSS Optimization & Green Theme */
         :root { --main: #006400; --bg: #f4f9f4; }
         
+        * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
+
         body { 
-            -webkit-user-select: none; user-select: none; 
-            font-family: 'Segoe UI', Roboto, sans-serif; 
+            font-family: 'Segoe UI', sans-serif; 
             text-align: center; background-color: var(--bg); 
             margin: 0; padding: 0; overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        .app-header {
-            background: white; padding: 15px 10px;
-            border-bottom: 3px solid var(--main);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-        .app-title { 
-            font-size: 30px; font-weight: 900; 
-            color: var(--main); margin: 0; 
-            font-family: 'Georgia', serif;
-        }
-        .app-sub { font-size: 13px; color: #444; font-style: italic; margin-top: -2px; }
+        /* 5. Deep Ad Masking: Changing names to fool blockers */
+        .novel-section { margin: 10px 0; min-height: 1px; background: transparent; overflow: hidden; }
 
-        .ad-container { margin: 10px 0; min-height: 60px; }
-
-        .info-card { 
-            background: white; margin: 20px 15px 10px 15px; padding: 15px;
-            border-radius: 12px; font-size: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
-            border-left: 6px solid var(--main);
-            border-right: 6px solid var(--main);
-            display: flex; flex-direction: column; gap: 5px;
-            line-height: 1.4;
+        #security-alert {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 100, 0, 0.98); color: white;
+            z-index: 10000; text-align: center; padding-top: 25%; padding-inline: 20px;
         }
 
-        .grid-container { 
-            display: grid; grid-template-columns: 1fr 1fr; 
-            gap: 12px; padding: 0 15px; margin-bottom: 20px;
-        }
-        .p-btn { 
-            background: var(--main); color: white; border: none;
-            padding: 14px; border-radius: 8px; font-weight: bold;
-            font-size: 14px; cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.1s;
-        }
-        .p-btn:active { transform: scale(0.95); }
+        .app-header { background: white; padding: 15px 10px; border-bottom: 3px solid var(--main); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .app-title { font-size: 32px; font-weight: 900; color: var(--main); margin: 0; font-family: 'Georgia', serif; }
 
-        .native-box { grid-column: span 2; margin: 10px 0; border: 1px dashed #ccc; border-radius: 8px; min-height: 100px; }
+        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; margin-top: 20px; }
+        .p-btn { background: var(--main); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 
-        .novel-container { 
-            position: relative; width: 100%; height: 85vh; 
-            display: none; border-top: 2px solid var(--main);
-            background: #f0f0f0; margin-top: 5px;
-        }
+        /* 6. Hard-Coded Privacy Shield (Content Loader) */
+        .content-display-area { position: relative; width: 100%; height: 85vh; display: none; border-top: 2px solid var(--main); background: #f0f0f0; overflow: hidden; }
+        .shield-layer { position: absolute; top: 0; right: 0; width: 100%; height: 65px; background: transparent; z-index: 9999; }
         
-        .security-overlay {
-            position: absolute; top: 0; right: 0;
-            width: 70px; height: 60px;
-            background: transparent; z-index: 9999;
-        }
-
-        iframe { width: 100%; height: 100%; border: none; }
-
-        .loader { 
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            border: 4px solid #ddd; border-top: 4px solid var(--main);
-            border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite;
-        }
+        iframe { width: 100%; height: 100%; border: none; position: relative; z-index: 1; }
+        .loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 4px solid #ddd; border-top: 4px solid var(--main); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; z-index: 150; }
         @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
     </style>
 </head>
 
 <body oncontextmenu="return false">
 
-    <div class="app-header">
-        <h1 class="app-title">Shams al-Hayaa</h1>
-        <div class="app-sub">By Husny Kanwal</div>
+    <div id="security-alert">
+        <h2>سیکیورٹی الرٹ! ⚠️</h2>
+        <p>ناول پڑھنے کے لیے ایڈ بلاکر بند کر کے ریفریش کریں۔</p>
+        <button onclick="location.reload()" style="background:white; color:var(--main); padding:10px 20px; border:none; border-radius:5px; font-weight:bold;">ریفریش کریں</button>
     </div>
 
-    <div class="ad-container">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-app-pub-8741169014792010"
-             data-ad-slot="9806767164"
-             data-ad-format="banner"></ins>
+    <div class="app-header">
+        <h1 class="app-title">Shams al-Hayaa</h1>
+        <div style="font-style: italic; color: #444; font-size: 14px;">By Husny Kanwal</div>
+    </div>
+
+    <div class="novel-section" id="chapter-loader-top">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="9806767164" data-ad-format="banner"></ins>
         <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
     </div>
 
-    <div class="info-card">
+    <div class="info-card" style="background: white; margin: 15px; padding: 15px; border-radius: 12px; border-left: 6px solid var(--main); border-right: 6px solid var(--main); box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
         <div style="color: #333; font-weight: bold; font-size: 17px;">Novel's by <b>Husny Kanwal...</b></div>
         <div style="color: #555; font-size: 15px;">Novels : jo dil m uter jayn❤️...</div>
     </div>
 
     <div class="grid-container">
-        <button class="p-btn" onclick="openNovel('19LlnDiuzmj852a_PggLMvmylW4TZqq8_')">Part 1</button>
-        <button class="p-btn" onclick="openNovel('1APe3iX9GErObREhfsYDu8RjIebIqzApf')">Part 2</button>
+        <button class="p-btn" onclick="secureOpen('19LlnDiuzmj852a_PggLMvmylW4TZqq8_')">Part 1</button>
+        <button class="p-btn" onclick="secureOpen('1APe3iX9GErObREhfsYDu8RjIebIqzApf')">Part 2</button>
         
-        <div class="native-box">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="fluid"
-                 data-ad-layout-key="-fb+5w+4e-db+86"
-                 data-ad-client="ca-app-pub-8741169014792010"
-                 data-ad-slot="8302113808"></ins>
+        <div style="grid-column: span 2;" class="novel-section" id="chapter-loader-mid">
+            <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="8302113808"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <button class="p-btn" onclick="openNovel('1K3bYHM2ejqHAGjikt6FYLd-CmYp37rRT')">Part 3</button>
-        <button class="p-btn" onclick="openNovel('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
+        <button class="p-btn" onclick="secureOpen('1K3bYHM2ejqHAGjikt6FYLd-CmYp37rRT')">Part 3</button>
+        <button class="p-btn" onclick="secureOpen('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
     </div>
 
-    <div class="novel-container" id="viewArea">
-        <div class="security-overlay"></div> 
+    <div class="content-display-area" id="viewArea">
+        <div class="shield-layer"></div>
         <div class="loader" id="loadingIcon"></div>
-        <iframe id="novelFrame" onload="stopLoad()"></iframe>
+        <iframe id="novelFrame" onload="document.getElementById('loadingIcon').style.display='none'"></iframe>
     </div>
 
     <script>
-        function openNovel(id) {
-            // Interstitial Ad Trigger (Unit: 5867522152)
-            // یہ فنکشن اب بٹن کو بلاک نہیں کرے گا
-            try {
-                (adsbygoogle = window.adsbygoogle || []).push({
-                    google_ad_client: "ca-app-pub-8741169014792010",
-                    enable_page_level_ads: true
-                });
-            } catch (e) { console.log("Ad skipping..."); }
+        // 9. Interstitial Trigger & Secure Opening
+        function secureOpen(id) {
+            // Manual Push for Interstitial
+            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
 
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
-            const loader = document.getElementById('loadingIcon');
             
             area.style.display = 'block';
-            loader.style.display = 'block';
+            document.getElementById('loadingIcon').style.display = 'block';
             frame.src = `https://drive.google.com/file/d/${id}/preview`;
             
             setTimeout(() => { area.scrollIntoView({ behavior: 'smooth' }); }, 300);
         }
 
-        function stopLoad() {
-            document.getElementById('loadingIcon').style.display = 'none';
-        }
-
-        // PROTECTION: Block Keyboard Shortcuts
-        document.addEventListener('keydown', e => {
-            if (e.ctrlKey && ['c','u','s','p'].includes(e.key)) e.preventDefault();
+        // 10. Protection: Keyboard & Copy Disable
+        document.addEventListener('keydown', e => { 
+            if (e.ctrlKey && ['c','u','s','p','a'].includes(e.key)) e.preventDefault(); 
         });
     </script>
 </body>
