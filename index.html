@@ -3,31 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Shams al-Hayaa - Deep Protected</title>
+    <title>Shams al-Hayaa - Reader</title>
     
     <link rel="preconnect" href="https://drive.google.com">
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-app-pub-8741169014792010" crossorigin="anonymous"></script>
-    
-    <script>
-        // 2. App Open Call & Smart Error Handling (Ad-Blocker Detection)
-        window.onload = function() {
-            (adsbygoogle = window.adsbygoogle || []).push({}); // App Open Call
-            
-            // 3. Caching & Ad-Blocker Detection System
-            setTimeout(() => {
-                const adCheck = document.querySelector('.adsbygoogle');
-                if (!adCheck || adCheck.offsetHeight === 0) {
-                    document.getElementById('security-alert').style.display = 'block';
-                }
-            }, 5000);
-        };
-    </script>
 
     <style>
-        /* 4. CSS Optimization & Green Theme */
+        /* 1. اوریجنل ڈیزائن اور سبز تھیم */
         :root { --main: #006400; --bg: #f4f9f4; }
         
-        * { -webkit-user-select: none !important; user-select: none !important; -webkit-touch-callout: none !important; }
+        /* 2. پروٹیکشن: ٹیکسٹ سلیکشن اور ٹچ ہولڈ پر پابندی */
+        * { 
+            -webkit-user-select: none !important; 
+            user-select: none !important; 
+            -webkit-touch-callout: none !important; 
+        }
 
         body { 
             font-family: 'Segoe UI', sans-serif; 
@@ -36,50 +25,105 @@
             scroll-behavior: smooth;
         }
 
-        /* 5. Deep Ad Masking: Changing names to fool blockers */
-        .novel-section { margin: 10px 0; min-height: 1px; background: transparent; overflow: hidden; }
-
-        #security-alert {
-            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 100, 0, 0.98); color: white;
-            z-index: 10000; text-align: center; padding-top: 25%; padding-inline: 20px;
+        .app-header { 
+            background: white; 
+            padding: 20px 10px; 
+            border-bottom: 3px solid var(--main); 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+        }
+        
+        .app-title { 
+            font-size: 32px; 
+            font-weight: 900; 
+            color: var(--main); 
+            margin: 0; 
+            font-family: 'Georgia', serif; 
         }
 
-        .app-header { background: white; padding: 15px 10px; border-bottom: 3px solid var(--main); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .app-title { font-size: 32px; font-weight: 900; color: var(--main); margin: 0; font-family: 'Georgia', serif; }
+        /* 3. ڈبل کالم بٹن لے آؤٹ */
+        .grid-container { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 12px; 
+            padding: 20px 15px; 
+        }
 
-        .grid-container { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 0 15px; margin-top: 20px; }
-        .p-btn { background: var(--main); color: #fff; border: none; padding: 14px; border-radius: 8px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .p-btn { 
+            background: var(--main); 
+            color: #fff; 
+            border: none; 
+            padding: 16px; 
+            border-radius: 8px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1); 
+            transition: 0.3s;
+        }
 
-        /* 6. Hard-Coded Privacy Shield (Content Loader) */
-        .content-display-area { position: relative; width: 100%; height: 85vh; display: none; border-top: 2px solid var(--main); background: #f0f0f0; overflow: hidden; }
-        .shield-layer { position: absolute; top: 0; right: 0; width: 100%; height: 65px; background: transparent; z-index: 9999; }
+        .p-btn:active { transform: scale(0.95); }
+
+        .info-card { 
+            background: white; 
+            margin: 15px; 
+            padding: 15px; 
+            border-radius: 12px; 
+            border-left: 6px solid var(--main); 
+            border-right: 6px solid var(--main); 
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08); 
+        }
+
+        /* 4. ڈبل لیئر پروٹیکشن (Shield) */
+        /* یہ ایریا فائل کو دوسری ونڈو میں کھلنے سے روکتا ہے */
+        .content-display-area { 
+            position: relative; 
+            width: 100%; 
+            height: 85vh; 
+            display: none; 
+            border-top: 2px solid var(--main); 
+            background: #f0f0f0; 
+            overflow: hidden; 
+        }
+
+        /* Shield layer: اوپر کی پٹی کو ڈھانپتی ہے تاکہ ڈاؤن لوڈ/شیئر بٹن نظر نہ آئیں */
+        .shield-layer { 
+            position: absolute; 
+            top: 0; 
+            right: 0; 
+            width: 100%; 
+            height: 65px; 
+            background: transparent; 
+            z-index: 9999; 
+        }
         
         iframe { width: 100%; height: 100%; border: none; position: relative; z-index: 1; }
-        .loader { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); border: 4px solid #ddd; border-top: 4px solid var(--main); border-radius: 50%; width: 40px; height: 40px; animation: spin 1s linear infinite; z-index: 150; }
+
+        /* لوڈنگ اینیمیشن */
+        .loader { 
+            position: absolute; 
+            top: 50%; 
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            border: 4px solid #ddd; 
+            border-top: 4px solid var(--main); 
+            border-radius: 50%; 
+            width: 40px; 
+            height: 40px; 
+            animation: spin 1s linear infinite; 
+            z-index: 150; 
+        }
+
         @keyframes spin { 0% { transform: translate(-50%, -50%) rotate(0deg); } 100% { transform: translate(-50%, -50%) rotate(360deg); } }
     </style>
 </head>
 
 <body oncontextmenu="return false">
 
-    <div id="security-alert">
-        <h2>سیکیورٹی الرٹ! ⚠️</h2>
-        <p>ناول پڑھنے کے لیے ایڈ بلاکر بند کر کے ریفریش کریں۔</p>
-        <button onclick="location.reload()" style="background:white; color:var(--main); padding:10px 20px; border:none; border-radius:5px; font-weight:bold;">ریفریش کریں</button>
-    </div>
-
     <div class="app-header">
         <h1 class="app-title">Shams al-Hayaa</h1>
         <div style="font-style: italic; color: #444; font-size: 14px;">By Husny Kanwal</div>
     </div>
 
-    <div class="novel-section" id="chapter-loader-top">
-        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="9806767164" data-ad-format="banner"></ins>
-        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-    </div>
-
-    <div class="info-card" style="background: white; margin: 15px; padding: 15px; border-radius: 12px; border-left: 6px solid var(--main); border-right: 6px solid var(--main); box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+    <div class="info-card">
         <div style="color: #333; font-weight: bold; font-size: 17px;">Novel's by <b>Husny Kanwal...</b></div>
         <div style="color: #555; font-size: 15px;">Novels : jo dil m uter jayn❤️...</div>
     </div>
@@ -87,12 +131,6 @@
     <div class="grid-container">
         <button class="p-btn" onclick="secureOpen('19LlnDiuzmj852a_PggLMvmylW4TZqq8_')">Part 1</button>
         <button class="p-btn" onclick="secureOpen('1APe3iX9GErObREhfsYDu8RjIebIqzApf')">Part 2</button>
-        
-        <div style="grid-column: span 2;" class="novel-section" id="chapter-loader-mid">
-            <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-fb+5w+4e-db+86" data-ad-client="ca-app-pub-8741169014792010" data-ad-slot="8302113808"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
-
         <button class="p-btn" onclick="secureOpen('1K3bYHM2ejqHAGjikt6FYLd-CmYp37rRT')">Part 3</button>
         <button class="p-btn" onclick="secureOpen('1FphWgHxkdx2EtsESQGGPE2yzhh39Si4s')">Part 4</button>
     </div>
@@ -104,24 +142,27 @@
     </div>
 
     <script>
-        // 9. Interstitial Trigger & Secure Opening
+        // محفوظ طریقے سے ناول لوڈ کرنا
         function secureOpen(id) {
-            // Manual Push for Interstitial
-            try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch (e) {}
-
             const area = document.getElementById('viewArea');
             const frame = document.getElementById('novelFrame');
             
             area.style.display = 'block';
             document.getElementById('loadingIcon').style.display = 'block';
+            
+            // گوگل ڈرائیو کا ایمبیڈ لنک جو صرف پریویو دکھائے گا
             frame.src = `https://drive.google.com/file/d/${id}/preview`;
             
-            setTimeout(() => { area.scrollIntoView({ behavior: 'smooth' }); }, 300);
+            // پیج کو ریڈر کی طرف خودکار طور پر لے جانا
+            setTimeout(() => { 
+                area.scrollIntoView({ behavior: 'smooth' }); 
+            }, 300);
         }
 
-        // 10. Protection: Keyboard & Copy Disable
+        // پروٹیکشن: کی بورڈ شارٹ کٹس (Ctrl+U, Ctrl+S وغیرہ) بلاک کرنا
         document.addEventListener('keydown', e => { 
-            if (e.ctrlKey && ['c','u','s','p','a'].includes(e.key)) e.preventDefault(); 
+            if (e.ctrlKey && ['c','u','s','p','a','i'].includes(e.key)) e.preventDefault(); 
+            if (e.keyCode == 123) e.preventDefault(); // F12 Key بلاک
         });
     </script>
 </body>
